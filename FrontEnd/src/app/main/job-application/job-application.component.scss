@@ -1,0 +1,78 @@
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+	opacity: 0.3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+	height: 100%;
+	width: 100%;
+}
+
+.block {
+	display: block
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 50px 0;
+
+	img {
+		width: 50px;
+	}
+}
+
+mat-card {
+	padding: 20px;
+	margin: 20px auto;
+	width: 600px;
+	text-align: right;
+
+	@media screen and (max-width: 600px) {
+		width: 100%;
+		font-size: 13px;
+	}
+
+	.flex-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.width-narrow {
+			flex: 0 1 20%;
+
+			@media screen and (max-width: 600px) {
+				width: 100px;
+			}
+		}
+
+		mat-slide-toggle.width-narrow {
+			@media screen and (max-width: 600px) {
+				margin-left: 10px;
+				width: 150px;
+			}
+		}
+
+		.width-wide {
+			flex: 0 1 60%;
+		}
+	}
+
+	mat-form-field {
+		margin: 10px 0;
+	}
+
+	textarea {
+		resize: none;
+	}
+
+	button {
+		width: 100%;
+		margin-top: 20px;
+	}
+}

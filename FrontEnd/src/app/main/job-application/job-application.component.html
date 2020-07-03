@@ -1,0 +1,99 @@
+<div class="overlay" *ngIf="isLoading">
+	<mat-spinner></mat-spinner>
+</div>
+
+<div>
+	<div class="logo-container">
+		<img src="/assets/Images/Logo.jpg">
+	</div>
+	<mat-card>
+		<form #form="ngForm" method="POST" dir="rtl">
+			<mat-form-field class="block">
+				<mat-label>الاسم</mat-label>
+				<input matInput ngModel name="name" #applicantName="ngModel" required>
+				<mat-error *ngIf="applicantName.touched && applicantName.hasError('required')">
+					برجاء ادخال الاسم
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="block">
+				<mat-label>السن</mat-label>
+				<input matInput ngModel name="age" #age="ngModel" required type="number" appNumber required>
+				<mat-error *ngIf="age.touched && age.hasError('required')">
+					برجاء ادخال السن
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="block">
+				<mat-label>المؤهل</mat-label>
+				<input matInput ngModel name="degree" #degree="ngModel" required>
+				<mat-error *ngIf="degree.touched && degree.hasError('required')">
+					برجاء ادخال المؤهل
+				</mat-error>
+			</mat-form-field>
+
+			<div class="flex-row">
+				<mat-form-field class="width-narrow">
+					<mat-label>مجموع سنين الخبرة</mat-label>
+					<input matInput ngModel name="totalYearsOfExperience" #totalYearsOfExperience="ngModel" required type="number"
+						appNumber>
+					<mat-error *ngIf="totalYearsOfExperience.touched && totalYearsOfExperience.hasError('required')">
+						برجاء ادخال مجموع سنين الخبرة
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="width-wide" *ngIf="totalYearsOfExperience.value && totalYearsOfExperience.value !== ''">
+					<mat-label>مجالات الخبرة</mat-label>
+					<input matInput ngModel name="field" #field="ngModel" required>
+					<mat-error *ngIf="field.touched && field.hasError('required')">
+						برجاء ادخال مجالات الخبرة
+					</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div class="flex-row">
+				<mat-slide-toggle color="primary" class="width-narrow" [ngModel]="false" name="hadExperienceInFoodSales"
+					#hadExperienceInFoodSales="ngModel">خبرة في
+					مبيعات الاغذية
+				</mat-slide-toggle>
+				<mat-form-field class="width-wide"
+					*ngIf="hadExperienceInFoodSales.value && hadExperienceInFoodSales.value !== ''">
+					<mat-label>عدد سنين الخبرة</mat-label>
+					<input matInput ngModel name="yearsOfExperienceInFoodSales" #yearsOfExperienceInFoodSales="ngModel" required
+						type="number" appNumber>
+					<mat-error *ngIf="yearsOfExperienceInFoodSales.touched && yearsOfExperienceInFoodSales.hasError('required')">
+						برجاء ادخال عدد سنين الخبرة في المبيعات
+					</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div class="flex-row">
+				<mat-slide-toggle color="primary" class="width-narrow" [ngModel]="false" name="hadExperienceInHoneySales"
+					#hadExperienceInHoneySales="ngModel">خبرة في مبيعات العسل
+				</mat-slide-toggle>
+				<mat-form-field class="width-wide"
+					*ngIf="hadExperienceInHoneySales.value && hadExperienceInHoneySales.value !== ''">
+					<mat-label>عدد سنين الخبرة</mat-label>
+					<input matInput ngModel name="yearsOfExperienceInHoneySales" #yearsOfExperienceInHoneySales="ngModel" required
+						type="number" appNumber>
+					<mat-error
+						*ngIf="yearsOfExperienceInHoneySales.touched && yearsOfExperienceInHoneySales.hasError('required')">
+						برجاء ادخال عدد سنين الخبرة في مبيعات العسل
+					</mat-error>
+				</mat-form-field>
+			</div>
+
+			<mat-form-field class="block">
+				<mat-label>الهاتف</mat-label>
+				<input matInput ngModel name="phone" #phone="ngModel" appNumber required>
+				<mat-error *ngIf="phone.touched && phone.hasError('required')">
+					برجاء ادخال الهاتف
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="block">
+				<mat-label>حدثنا عن نفسك</mat-label>
+				<textarea matInput ngModel name="additinalInfo" #additinalInfo="ngModel" Rows="7" maxlength="700"></textarea>
+			</mat-form-field>
+
+			<button color="primary" mat-raised-button type="submit" (click)="submit(form)"
+				[disabled]="form.invalid">ارسال</button>
+		</form>
+	</mat-card>
+</div>
