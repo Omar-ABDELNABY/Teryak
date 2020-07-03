@@ -26,7 +26,9 @@ export class JobApplicationService {
 
 	handleError(error) {
 		// wiered behavior: inputs switched in arabic here!
-		this.snackBar.open('', 'حدث خطأ ما! برجاء المحاوله لاحقا');
+		this.snackBar.open('', 'حدث خطأ ما! برجاء المحاوله لاحقا', {
+			duration: 3000
+		});
 		return of(null);
 	}
 

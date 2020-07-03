@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "content-FE": {
+    "teryak-FE": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/content-FE",
+            "outputPath": "dist/teryak-FE",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "content-FE:build"
+            "browserTarget": "teryak-FE:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "content-FE:build:production"
+              "browserTarget": "teryak-FE:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "content-FE:build"
+            "browserTarget": "teryak-FE:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "content-FE:serve"
+            "devServerTarget": "teryak-FE:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "content-FE:serve:production"
+              "devServerTarget": "teryak-FE:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "content-FE"
+  "defaultProject": "teryak-FE"
 }

@@ -10,9 +10,12 @@
 		<form #form="ngForm" method="POST" dir="rtl">
 			<mat-form-field class="block">
 				<mat-label>الاسم</mat-label>
-				<input matInput ngModel name="name" #applicantName="ngModel" required>
+				<input matInput ngModel name="name" #applicantName="ngModel" required minlength="2">
 				<mat-error *ngIf="applicantName.touched && applicantName.hasError('required')">
 					برجاء ادخال الاسم
+				</mat-error>
+				<mat-error *ngIf="applicantName.touched && applicantName.hasError('minlength')">
+					الاسم يجب الا يقل عن حرفين
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field class="block">
@@ -24,9 +27,12 @@
 			</mat-form-field>
 			<mat-form-field class="block">
 				<mat-label>المؤهل</mat-label>
-				<input matInput ngModel name="degree" #degree="ngModel" required>
+				<input matInput ngModel name="degree" #degree="ngModel" required minlength="2">
 				<mat-error *ngIf="degree.touched && degree.hasError('required')">
 					برجاء ادخال المؤهل
+				</mat-error>
+				<mat-error *ngIf="degree.touched && degree.hasError('minlength')">
+					المؤهل يجب الا يقل عن حرفين
 				</mat-error>
 			</mat-form-field>
 
@@ -59,7 +65,7 @@
 					<input matInput ngModel name="yearsOfExperienceInFoodSales" #yearsOfExperienceInFoodSales="ngModel" required
 						type="number" appNumber>
 					<mat-error *ngIf="yearsOfExperienceInFoodSales.touched && yearsOfExperienceInFoodSales.hasError('required')">
-						برجاء ادخال عدد سنين الخبرة في المبيعات
+						برجاء ادخال عدد سنين الخبرة مبيعات الاغذية
 					</mat-error>
 				</mat-form-field>
 			</div>
@@ -82,9 +88,12 @@
 
 			<mat-form-field class="block">
 				<mat-label>الهاتف</mat-label>
-				<input matInput ngModel name="phone" #phone="ngModel" appNumber required>
+				<input matInput ngModel name="phone" #phone="ngModel" type="number" appNumber required minlength="7">
 				<mat-error *ngIf="phone.touched && phone.hasError('required')">
 					برجاء ادخال الهاتف
+				</mat-error>
+				<mat-error *ngIf="phone.touched && phone.hasError('minlength')">
+					رقم الهاتف يجب الا يقل عن سبع ارقام
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field class="block">
